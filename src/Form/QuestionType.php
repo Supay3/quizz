@@ -14,12 +14,15 @@ class QuestionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('questionTexte', TextType::class)
+            ->add('questionTexte', TextType::class, [
+                'label' => 'Votre question'
+            ])
             ->add('reponses', CollectionType::class, [
-                'allow_add' => true,
-                'allow_delete' => true,
                 'entry_type' => ReponseType::class,
                 'by_reference' => false,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'label' => 'Vos réponses'
             ])
         ;
     }

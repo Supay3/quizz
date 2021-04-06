@@ -14,7 +14,7 @@ class ReponseType extends AbstractType
     {
         $builder
             ->add('reponseTexte', TextType::class, [
-                'by_reference' => false,
+                'label' => 'Réponse'
             ])
         ;
     }
