@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quizz index{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Quizz index</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Crée le</th>
+                <th>Mis à jour le</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for quizz in quizzs %}
+                <tr>
+                    <td>{{ quizz.nom }}</td>
+                    <td>{{ quizz.createdAt ? quizz.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ quizz.updatedAt ? quizz.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>
+                        <a href="{{ path(constant('App\\Controller\\NomRoute::ADMIN_QUIZZ_SHOW'), {'id': quizz.id}) }}">Montrer</a>
+                        <a href="{{ path(constant('App\\Controller\\NomRoute::ADMIN_QUIZZ_EDIT'), {'id': quizz.id}) }}">Éditer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Aucun Quizz :(</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path(constant('App\\Controller\\NomRoute::ADMIN_QUIZZ_NEW')) }}">Créer un nouveau</a>
+    </div>
+{% endblock %}

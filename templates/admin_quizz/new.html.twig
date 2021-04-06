@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Quizz{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Créer un nouveau Quizz</h1>
+
+        {{ include('admin_quizz/_form.html.twig') }}
+
+        <a href="{{ path(constant('App\\Controller\\NomRoute::ADMIN_QUIZZ_INDEX')) }}">Retour à la liste</a>
+    </div>
+{% endblock %}
