@@ -7,6 +7,14 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
+import {CollectionBasicType} from "./admin/CollectionBasicType";
 
-// start the Stimulus application
-import './bootstrap';
+
+if (document.querySelectorAll('.add-question-link')) {
+    window.addEventListener('click', function (e) {
+        console.log('salut')
+        let collectionBasicType = new CollectionBasicType(document.querySelector('.add-question-link'));
+
+    });
+    let collectionBasicType = new CollectionBasicType(document.querySelector('.add-question-link'));
+}

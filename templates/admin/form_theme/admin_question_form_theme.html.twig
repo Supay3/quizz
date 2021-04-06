@@ -1,0 +1,30 @@
+{% block collection_row %}
+    <div class="container mt-4">
+        <label for="{{ form.vars.id }}"
+               class="{{ form.vars.required ? 'required' }}">
+            {% if form.vars.label is not null %}
+                {{ form.vars.label }}
+            {% else %}
+                {{ form.vars.name | u.snake.replace('_', ' ') | title }}
+            {% endif %}
+        </label>
+        <div>
+            <div class="{{ form.vars.name }}"
+                 data-prototype="{{ form_row(form.vars.prototype)|e('html_attr') }}"
+                 data-widget-counter="{{ form.children|length }}">
+                {% for fields in form.children %}
+                    <div>
+                        {{ form_row(fields) }}
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="button" class="add-question-link mt-4 mb-4 btn btn-primary" data-collection-holder-class=".{{ form.vars.name }}">Ajouter une question</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block collection_entry_row %}
+    {% for children in form.children %}
+        {{ form_row(children) }}
+    {% endfor %}
+{% endblock %}

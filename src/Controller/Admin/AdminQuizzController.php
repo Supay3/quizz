@@ -17,7 +17,7 @@ class AdminQuizzController extends AbstractController
     #[Route('/', name: NomRoute::ADMIN_QUIZZ_INDEX, methods: ['GET'])]
     public function index(QuizzRepository $quizzRepository): Response
     {
-        return $this->render('admin_quizz/index.html.twig', [
+        return $this->render('admin/quizz/index.html.twig', [
             'quizzs' => $quizzRepository->findAll(),
         ]);
     }
@@ -37,7 +37,7 @@ class AdminQuizzController extends AbstractController
             return $this->redirectToRoute(NomRoute::ADMIN_QUIZZ_INDEX);
         }
 
-        return $this->render('admin_quizz/new.html.twig', [
+        return $this->render('admin/quizz/new.html.twig', [
             'quizz' => $quizz,
             'form' => $form->createView(),
         ]);
@@ -46,7 +46,7 @@ class AdminQuizzController extends AbstractController
     #[Route('/{id}', name: NomRoute::ADMIN_QUIZZ_SHOW, methods: ['GET'])]
     public function show(Quizz $quizz): Response
     {
-        return $this->render('admin_quizz/show.html.twig', [
+        return $this->render('admin/quizz/show.html.twig', [
             'quizz' => $quizz,
         ]);
     }
@@ -63,7 +63,7 @@ class AdminQuizzController extends AbstractController
             return $this->redirectToRoute(NomRoute::ADMIN_QUIZZ_INDEX);
         }
 
-        return $this->render('admin_quizz/edit.html.twig', [
+        return $this->render('admin/quizz/edit.html.twig', [
             'quizz' => $quizz,
             'form' => $form->createView(),
         ]);
