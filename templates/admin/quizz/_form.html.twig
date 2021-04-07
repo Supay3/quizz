@@ -1,7 +1,6 @@
 {% form_theme form 'admin/form_theme/admin_question_form_theme.html.twig' %}
 
 {{ form_start(form) }}
-    {{ form_row(form.nom) }}
-    {{ form_row(form.questions) }}
+    {{ form_row(form) }}
     <button class="btn btn-success">{{ button_label|default('Sauvegarder') }}</button>
 {{ form_end(form) }}

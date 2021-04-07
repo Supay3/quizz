@@ -20,6 +20,7 @@ class QuizzType extends AbstractType
                 'allow_delete' => true,
                 'by_reference' => false,
                 'entry_type' => QuestionType::class,
+                'prototype_name' => '__question_prototype__'
             ])
         ;
     }

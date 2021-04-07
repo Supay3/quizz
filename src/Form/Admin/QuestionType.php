@@ -23,6 +23,7 @@ class QuestionType extends AbstractType
                 'allow_add' => true,
                 'allow_delete' => true,
                 'label' => 'Vos réponses',
+                'prototype_name' => '__reponse_prototype__',
             ])
         ;
     }
